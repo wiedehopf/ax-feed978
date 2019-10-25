@@ -1,0 +1,2 @@
+RECEIVER_OPTIONS="--net-only"
+NET_OPTIONS="--net --net-heartbeat 60 --net-ro-size 1000 --net-ro-interval 0.5 --net-ri-port 39901 --net-ro-port 0 --net-sbs-port 0 --net-bi-port 0 --net-bo-port 39905"

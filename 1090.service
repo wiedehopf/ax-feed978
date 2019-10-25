@@ -1,0 +1,22 @@
+
+[Unit]
+Wants=network.target
+After=network.target
+
+[Service]
+EnvironmentFile=/usr/local/share/ax-feed978/default
+EnvironmentFile=/etc/default/ax-feed978
+SyslogIdentifier=ax-feed978-1090
+RuntimeDirectory=ax-feed978-1090
+User=dump1090
+RuntimeDirectoryMode=0755
+ExecStart=/usr/bin/dump1090-fa \
+ $RECEIVER_OPTIONS $DECODER_OPTIONS $NET_OPTIONS $JSON_OPTIONS $PIAWARE_DUMP1090_LOCATION_OPTIONS \
+ --write-json /run/ax-feed978-1090 --quiet
+Type=simple
+Restart=on-failure
+RestartSec=30
+Nice=5
+
+[Install]
+WantedBy=default.target
