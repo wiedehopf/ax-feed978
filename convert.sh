@@ -20,7 +20,7 @@ done &
 while sleep 1
 do
 	sleep 5 &
-	socat -d -d -u TCP:localhost:30978,forever,interval=5 STDOUT | /usr/local/bin/uat2esnt -t | socat -u -d -d STDIN TCP:localhost:39901
+	socat -u TCP:localhost:30978,forever,interval=5 STDOUT | /usr/local/bin/uat2esnt -t | socat -u STDIN TCP:localhost:39901
 	wait
 done &
 
